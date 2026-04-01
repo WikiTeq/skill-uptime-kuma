@@ -9,7 +9,7 @@ Check monitor status, manage maintenances, pause/resume checks, view heartbeat h
 ## Install
 
 ```bash
-npx skills add -g wikiteq/skill-uptime-kuma
+npx skills add -g git@github.com:WikiTeq/skill-uptime-kuma.git
 ```
 
 ## Setup
