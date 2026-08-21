@@ -158,12 +158,13 @@ def cmd_status(args):
             if not m.get("active"):
                 continue
 
-            print(f"Fetching beats for monitor: {m.get('name')} url: {m.get('url')} ..")
+            print(f"Fetching beats for monitor: {m.get('name')} ..", file=sys.stderr)
             time.sleep(0.1)
 
             beats = api.get_monitor_beats(m["id"], 1)
+            # Beats are ordered by time ascending, so the last one is current
             if beats:
-                status = beats[0].get("status")
+                status = beats[-1].get("status")
                 if status == 1:
                     up += 1
                 elif status == 0:
